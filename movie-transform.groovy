@@ -6,7 +6,7 @@ def jsonSlurper = new JsonSlurper()
 def movie = jsonSlurper.parseText(new String(payload))
 
 
-def connection = new URL( "https://imdb8.p.rapidapi.com/title/get-details?tconst=${movie.id}")
+def connection = new URL( "https://imdb8.p.rapidapi.com/title/get-ratings?tconst=${movie.id}")
                  .openConnection() as HttpURLConnection
 
 connection.setRequestProperty( 'x-rapidapi-host', 'imdb8.p.rapidapi.com' )
@@ -20,7 +20,7 @@ if ( connection.responseCode == 200 ) {
         new JsonSlurper().parse( inStream as InputStream )
     }
     
-    movie.imdb = [ "image": imdb.image.url ]   
+    movie.imdb = [ "rating": imdb.rating, "ratingCount": imdb.ratingCount ]   
 
 } else {
     println connection.responseCode + ": " + connection.inputStream.text
