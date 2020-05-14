@@ -1,8 +1,9 @@
 import json
 
 def input():
-  print ("PRE" + payload)
-  return json.loads(payload)
+  print ("PRE: " + payload)
+  print ("Type: " + type(payload))
+  return {'url':'https://imdb8.p.rapidapi.com/title/get-details?tconst=tt0944947'}
 
 def output():
   print ("POST" + payload)
