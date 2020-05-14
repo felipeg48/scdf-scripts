@@ -6,7 +6,7 @@ def jsonSlurper = new JsonSlurper()
 def movie = jsonSlurper.parseText(new String(payload))
 
 
-def connection = new URL( "https://imdb8.p.rapidapi.com/title/get-details?tconst=${movie.imdb}")
+def connection = new URL( "https://imdb8.p.rapidapi.com/title/get-details?tconst=${movie.id}")
                  .openConnection() as HttpURLConnection
 
 connection.setRequestProperty( 'x-rapidapi-host', 'imdb8.p.rapidapi.com' )
