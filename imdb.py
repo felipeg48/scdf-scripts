@@ -1,10 +1,12 @@
+import json
+
 def input():
   print ("PRE" + payload)
-  return "Hola"
+  return json.loads(payload)
 
 def output():
   print ("POST" + payload)
-  return "Adios"
+  return json.loads(payload)
 
 
 result = locals()[channel]()
