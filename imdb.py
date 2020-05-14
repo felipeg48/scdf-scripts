@@ -2,7 +2,9 @@ import json
 
 def input():
   print ("PRE: " + payload)
-  print ("Type: " + type(payload))
+  print ("Type: ")
+  print (type(payload))
+  
   return {'url':'https://imdb8.p.rapidapi.com/title/get-details?tconst=tt0944947'}
 
 def output():
